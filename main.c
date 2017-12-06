@@ -26,14 +26,13 @@ int main(int argc, char** argv) {
 					exit(1);
 				}
 				
-				printf("value input: %d\n", atoi(argv[2]));
 				semctl(key, 0, SETVAL, atoi(argv[2]));
 				printf("Adding semaphore: %d\n", key);
 			break;
 			
 			case 'v':
 				key = semget(MY_SEM, 1, 0600);
-				printf("%d\n", semctl(key, 0, GETVAL));
+				printf("semaphore val: %d\n", semctl(key, 0, GETVAL));
 			break;
 			
 			case 'r':
